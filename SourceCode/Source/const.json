@@ -1,5 +1,6 @@
 {
   "trange_n" : 10000000,
   "userName" : null,
-  "password" : null
+  "password" : null,
+  "__version__" : "2.0.1"
 }
