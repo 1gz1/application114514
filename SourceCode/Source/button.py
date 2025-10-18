@@ -3,7 +3,7 @@ from os import system
 from loguru import logger
 
 logger.remove()
-logger.add("debud.log")
+logger.add("debug.log")
 
 def cmd():
     system("start cmd")
@@ -74,3 +74,4 @@ def pip():
         pi = CTkButton(pip, text="安装pyinstaller", command=install_pyinstaller)
         pi.pack()
         pipt.mainloop()
+
