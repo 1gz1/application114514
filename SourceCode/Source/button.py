@@ -1,5 +1,9 @@
 from customtkinter import *
 from os import system
+from loguru import logger
+
+logger.remove()
+logger.add("debud.log")
 
 def cmd():
     system("start cmd")
@@ -34,40 +38,18 @@ def vscode():
         err.mainloop()
 
 def chrome():
-    try:
+    with logger.catch():
         system("start chrome")
-    except:
-        err = CTk()
-        err.title("错误")
-        err.geometry("200x100")
-        errmsg = CTkLabel(err, text="未安装Chrome")
-        errmsg.pack()
-        err.mainloop()
 
 def edge():
-    try:
+    with logger.catch():
         system("start msedge")
-    except:
-        err = CTk()
-        err.title("错误")
-        err.geometry("200x100")
-        errmsg = CTkLabel(err, text="未安装Edge")
-        errmsg.pack()
-        err.mainloop()
-
 def bilibili():
-    try:
+    with logger.catch():
         system("start https://www.bilibili.com/")
-    except:
-        err = CTk()
-        err.title("错误")
-        err.geometry("200x100")
-        errmsg = CTkLabel(err, text="你是不是卸载浏览器了？")
-        errmsg.pack()
-        err.mainloop()
         
 def pip():
-    try:
+    with logger.catch():
         pipt = CTk()
         pipt.title("pip工具")
         pipt.geometry("600x500")
@@ -92,10 +74,3 @@ def pip():
         pi = CTkButton(pip, text="安装pyinstaller", command=install_pyinstaller)
         pi.pack()
         pipt.mainloop()
-    except:
-        err = CTk()
-        err.title("错误")
-        err.geometry("200x100")
-        errmsg = CTkLabel(err, text="pip未安装或未配置环境变量")
-        errmsg.pack()
-        err.mainloop()
